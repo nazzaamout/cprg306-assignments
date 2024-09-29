@@ -2,89 +2,106 @@
 
 import React, { useState } from "react";
 
-function NewItem() {
-  const [name, setName] = useState("Item name");
+export default function NewItem() {
+  const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("Produce");
-
-  function increment() {
-    if (quantity < 20) {
-      setQuantity((prev) => prev + 1);
-    }
-  }
-
-  function decrement() {
-    if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
-    }
-  }
+  const [error, setError] = useState(); // [1]
+  const [isFocused, setIsFocused] = useState(false); // [2]
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const item = { name, quantity, category };
+    if (!name) {
+      setError("Please fill out this field.");
+      return;
+    }
+
+    const newItem = {
+      name,
+      quantity,
+      category,
+    };
     console.log(item);
     alert("Submitted item: " + JSON.stringify(item));
 
     setName("");
     setQuantity(1);
     setCategory("Produce");
+    setError("");
   }
 
+  const handleNameChange = (item) => {
+    setName(item.target.value);
+  };
+
+  const handleQuantityChange = (item) => {
+    setQuantity(item.target.value);
+  };
+
+  const handleCategoryChange = (item) => {
+    setCategory(item.target.value);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+    <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
       <div>
         <input
+          required
+          onChange={handleNameChange}
+          onClick={handleNameChange}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          value={name}
           type="text"
           id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="border p-2 rounded text-gray-400"
+          className="w-full px-10 py-2 rounded-md border border-gray-300 text-black"
+          //     !isFocused &&
+          //     name === "" && (
+          //       <span className="absolute top-1/2 transform translate-y-1/2 left-4 text-grey-400">
+          //         Item name
+          //       </span>
+          //     )
+          //   }`}
         />
       </div>
-
       <div className="mb-4 flex justify-between items-center">
         <input
+          required
+          onChange={handleQuantityChange}
+          onClick={handleQuantityChange}
+          value={quantity}
           type="number"
           id="quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
           min="1"
           max="20"
-          className="w-full px-3 py-2 border rounded text-black"
+          className="w-auto px-3 py-2 border border-gray-300 rounded-md text-black"
         />
         <select
-          id="category"
+          required
+          onChange={handleCategoryChange}
+          onClick={handleCategoryChange}
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-3 py-2 border rounded text-black"
+          className="w-auto px-3 py-2 border border-gray-300 rounded-md text-black"
         >
-          <option value="produce">Produce</option>
-          <option value="" className="text-gray-500">
-            Category
-          </option>
-          <option value="dairy">Dairy</option>
-          <option value="bakery">Bakery</option>
-          <option value="meat">Meat</option>
-          <option value="frozen foods">Frozen Foods</option>
-          <option value="canned goods">Canned Goods</option>
-          <option value="dry goods">Dry Goods</option>
-          <option value="beverages">Beverages</option>
-          <option value="snacks">Snacks</option>
-          <option value="household">Household</option>
-          <option value="other">Other</option>
+          <option value="Produce">Produce</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Meat">Meat</option>
+          <option value="Bakery">Bakery</option>
+          <option value="Frozen">Frozen</option>
+          <option value="Canned">Canned</option>
+          <option value="Beverages">Beverages</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Other">Other</option>
         </select>
       </div>
-
       <button
         type="submit"
         className="bg-blue-500 text-white px-4 py-2 rounded"
       >
-        +
+        {" "}
+        +{" "}
       </button>
     </form>
   );
 }
-
-export default NewItem;
