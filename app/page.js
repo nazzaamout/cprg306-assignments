@@ -5,13 +5,17 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="absolute top-0 left-0 p-5 text-sm text-gray-500">
+        <p>CPRG306B</p>
+      </div>
+
       <div className="z-10 max-w-5xl w-full items-center justify-between text=sm">
         <h1 className=" text-4xl font-bold mb-5">
           Web Development 2 Weekly Assignments
         </h1>
         <div className="text-lg">
           <ul>
-            <li>
+            <li className="font-semibold">
               <Link
                 href="/week-2"
                 className="hover:text-green-500 hover:underline"
@@ -78,6 +82,11 @@ export default function Home() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="absolute bottom-0 right-0 p-5 text-sm text-gray-500">
+        <p>Student: Naz Zaamout </p>
+        <p>Instructor: Aaron Warsylewicz</p>
       </div>
     </main>
   );
