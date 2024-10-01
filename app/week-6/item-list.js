@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Item from "./item";
 
 const items = JSON.parse(require("./items.json"));
