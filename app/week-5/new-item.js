@@ -85,6 +85,9 @@ export default function NewItem() {
           className="w-auto px-3 py-2 border border-gray-300 rounded-md text-black"
         >
           <option value="Produce">Produce</option>
+          <option value="" disabled>
+            Category
+          </option>
           <option value="Dairy">Dairy</option>
           <option value="Meat">Meat</option>
           <option value="Bakery">Bakery</option>
