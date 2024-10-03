@@ -58,28 +58,3 @@ const item12 = {
   quantity: 4,
   category: "household",
 };
-
-const ItemList = () => {
-  const items = [
-    item1,
-    item2,
-    item3,
-    item4,
-    item5,
-    item6,
-    item7,
-    item8,
-    item9,
-    item10,
-    item11,
-    item12,
-  ];
-
-  return (
-    <ul className="space-y-2 p-4">
-      {items.map((item) => (
-        <Item key={item.name} {...item} />
-      ))}
-    </ul>
-  );
-};

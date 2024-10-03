@@ -31,6 +31,18 @@ export default function NewItem() {
     setError("");
   }
 
+  const increment = () => {
+    if (quantity < 20) {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   const handleNameChange = (item) => {
     setName(item.target.value);
   };
@@ -53,30 +65,35 @@ export default function NewItem() {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           value={name}
+          placeholder="Item name"
           type="text"
           id="name"
           className="w-full px-10 py-2 rounded-md border border-gray-300 text-black"
-          //     !isFocused &&
-          //     name === "" && (
-          //       <span className="absolute top-1/2 transform translate-y-1/2 left-4 text-grey-400">
-          //         Item name
-          //       </span>
-          //     )
-          //   }`}
-        />
+        />{" "}
       </div>
-      <div className="mb-4 flex justify-between items-center">
-        <input
-          required
-          onChange={handleQuantityChange}
-          onClick={handleQuantityChange}
-          value={quantity}
-          type="number"
-          id="quantity"
-          min="1"
-          max="20"
-          className="w-auto px-3 py-2 border border-gray-300 rounded-md text-black"
-        />
+      <div className="flex flex-row">
+        <div class="bg-gradient-to-tr from-white to-slate-200 flex flex-row gap-6 rounded-xl m-5 w-40 h-15 items-center justify-center">
+          <p class="text-black font-sans font-semibold ml-3">{quantity}</p>
+          <div class="flex gap-2">
+            <button
+              type="button"
+              onClick={decrement}
+              disabled={quantity == 1}
+              class="bg-blue-400 disabled:bg-gray-500 focus:ring-2 focus:ring-blue-300 hover:bg-blue-600 shadow-lg rounded-xl mb-2 mt-2 w-10 h-8 "
+            >
+              -
+            </button>
+            <button
+              type="button"
+              onClick={increment}
+              disabled={quantity == 20}
+              class="bg-blue-400 disabled:bg-gray-500 focus:ring-2 focus:ring-blue-300 hover:bg-blue-600 shadow-lg rounded-xl mb-2 mt-2 w-10 h-8 "
+            >
+              +
+            </button>
+          </div>
+        </div>
+
         <select
           required
           onChange={handleCategoryChange}
