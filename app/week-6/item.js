@@ -1,15 +1,13 @@
-import React from "react";
-
 const Item = ({ name, quantity, category }) => {
   return (
-    <main className="container mx-auto p-2 bg-gray-800">
-      <span className="text-lg font-semibold">{name}</span>
-      <br />
-      <span className="text-xs text-gray-300">
-        Buy {quantity} in {category}
-      </span>
-    </main>
+    <section>
+      <ul className="p-5 m-5 font-sans bg-white shadow-lg">
+        <li className="font-bold text-2xl text-slate-800">{name}</li>
+        <li>
+          {" "}
+          Buy {quantity} in {category}
+        </li>
+      </ul>
+    </section>
   );
 };
-
-export default Item;
