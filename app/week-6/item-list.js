@@ -22,8 +22,8 @@ export default function ItemList() {
           onClick={() => {
             setSortBy("name");
           }}
-          style={{ backgroundColor: sortBy === "name" ? "blue" : "grey" }}
-          className="bg-cyan-500 pb-2 w-40 h-8 shadow-md rounded-md"
+          style={{ backgroundColor: sortBy === "name" ? "0059b3" : " " }}
+          className="bg-cyan-400 pb-2 w-40 h-8 shadow-md rounded-md"
         >
           Name
         </button>
@@ -32,8 +32,8 @@ export default function ItemList() {
           onClick={() => {
             setSortBy("category");
           }}
-          style={{ backgroundColor: sortBy === "category" ? "blue" : "grey" }}
-          className="bg-cyan-500 pb-2 w-40 h-8 shadow-md rounded-md"
+          style={{ backgroundColor: sortBy === "category" ? "0059b3" : " " }}
+          className="bg-cyan-400 pb-2 w-40 h-8 shadow-md rounded-md"
         >
           Category
         </button>
