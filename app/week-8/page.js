@@ -16,12 +16,16 @@ export default function Page() {
 
   const handleItemSelect = (item) => {
     console.log(item);
-    const cleanedName = item.replace(
-      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
-      ""
-    );
+    const cleanedName = item
+      .replace(
+        /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+        ""
+      )
+      .split(",")[0]
+      .trim();
+    console.log(cleanedName);
 
-    setSelectedItemName(cleanedName.split(",")[0].trim());
+    setSelectedItemName(cleanedName);
   };
 
   return (
