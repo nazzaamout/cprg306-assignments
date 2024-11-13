@@ -52,14 +52,3 @@ export default function Page() {
     </main>
   );
 }
-
-// Sign in to Firebase with GitHub authentication
-await gitHubSignIn();
-
-// Sign out of Firebase
-await firebaseSignOut();
-
-// Display some of the user's information
-<p>
-  Welcome, {user.displayName} ({user.email})
-</p>;

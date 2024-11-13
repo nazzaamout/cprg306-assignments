@@ -4,7 +4,7 @@ import { useUserAuth } from "../_utils/auth-context";
 import Link from "next/link";
 
 export default function Page() {
-  const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+  const { user } = useUserAuth();
 
   if (!user) {
     return (
@@ -29,7 +29,7 @@ export default function Page() {
 
         <img
           src={user.photoURL}
-          alt="User profile"
+          alt="User profile Photo"
           className="rounded-full w-32 h-32"
         />
       </div>
