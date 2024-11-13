@@ -42,11 +42,11 @@ export default function Page() {
 
       {user ? (
         <div className="flex no-underline hover:underline text-black">
-          <button onClick={logout}>Sign Out</button>
+          <button onClick={logout}>logout</button>
         </div>
       ) : (
         <div className="flex no-underline hover:underline text-black">
-          <button onClick={login}>Sign In</button>
+          <button onClick={login}>Login with GitHub</button>
         </div>
       )}
     </main>

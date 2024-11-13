@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function NewItem({ onAddItem }) {
   const [quantity, setQuantity] = useState(1);
@@ -75,7 +75,12 @@ export default function NewItem({ onAddItem }) {
           onChange={(e) => setCategory(e.target.value)}
           className="text-slate-500 w-50 h-14 rounded-md mr-5 mt-6 mb-6 shadow-md"
         >
-          <option value="produce">Produce</option>
+          <option value="" selected="true" disabled="disabled">
+            Category
+          </option>
+          <option value="produce" selected="true">
+            Produce
+          </option>
           <option value="dairy">Dairy</option>
           <option value="bakery">Bakery</option>
           <option value="meat">Meat</option>

@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 
 export default function Page() {
+  const { user } = useUserAuth();
   const [items, setItems] = useState(itemsData);
-  const [selectedItemName, setSelectedItemName] = useState(null);
+  const [selectedItemName, setSelectedItemName] = useState("");
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
@@ -27,6 +29,14 @@ export default function Page() {
 
     setSelectedItemName(cleanedName);
   };
+
+  if (!user) {
+    return (
+      <div>
+        <h2>Sign in to view this page.</h2>
+      </div>
+    );
+  }
 
   return (
     <main className="flex bg-center bg-black min-h-screen text-gray-200 p-5">

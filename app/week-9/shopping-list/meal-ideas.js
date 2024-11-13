@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
@@ -13,15 +12,6 @@ export default function MealIdeas({ ingredient }) {
 
     if (ingredient) loadMealIdeas();
   }, [ingredient]);
-
-  //   const loadMealIdeas = async () => {
-  //     const meals = await fetchMealIdeas(ingredient);
-  //     setMeals(meals);
-  //   };
-
-  //   useEffect(() => {
-  //     loadMealIdeas();
-  //   }, [ingredient]);
 
   return (
     <div className="bg-blue-950 p-5 rounded-xl text-gray-400">

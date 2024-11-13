@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Item({ name, quantity, category, onSelect }) {
   return (
     <section>
